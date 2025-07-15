@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+:root {
+  --duolingo-green: #58cc02;
+  --duolingo-green-dark: #4caf00;
+  --duolingo-blue: #1cb0f6;
+  --duolingo-red: #ff4b4b;
+  --duolingo-orange: #ff9600;
+  --duolingo-purple: #ce82ff;
+  --duolingo-yellow: #ffc800;
+  --duolingo-gray: #777777;
+  --duolingo-light-gray: #f7f7f7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: linear-gradient(180deg, #58cc02 0%, #4caf00 100%);
+  min-height: 100vh;
+}
+
+.duolingo-button {
+  @apply font-bold text-white rounded-2xl border-b-4 transition-all duration-150 active:border-b-2 active:translate-y-1;
+}
+
+.duolingo-button-green {
+  background: var(--duolingo-green);
+  border-color: var(--duolingo-green-dark);
+}
+
+.duolingo-button-green:hover {
+  background: #4caf00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(88, 204, 2, 0.3);
+}
+
+.duolingo-button-blue {
+  background: var(--duolingo-blue);
+  border-color: #1976d2;
+}
+
+.duolingo-button-blue:hover {
+  background: #1976d2;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(28, 176, 246, 0.3);
+}
+
+.duolingo-button-white {
+  background: white;
+  color: var(--duolingo-green);
+  border-color: #e0e0e0;
+}
+
+.duolingo-button-white:hover {
+  background: #f5f5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.duolingo-card {
+  @apply bg-white rounded-2xl border-b-4 border-gray-300 shadow-lg;
+  transition: all 0.3s ease;
+}
+
+.duolingo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.duolingo-progress {
+  background: var(--duolingo-green);
+  border-radius: 12px;
+  height: 16px;
+  transition: all 0.5s ease;
+}
+
+.lesson-circle {
+  @apply w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold border-b-4 transition-all duration-200;
+  cursor: pointer;
+}
+
+.lesson-circle.completed {
+  background: var(--duolingo-green);
+  border-color: var(--duolingo-green-dark);
+  color: white;
+}
+
+.lesson-circle.completed:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(88, 204, 2, 0.4);
+}
+.lesson-circle.current {
+  background: var(--duolingo-blue);
+  border-color: #1976d2;
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+.lesson-circle.current:hover {
+  transform: scale(1.1);
+  animation: none;
+  box-shadow: 0 8px 25px rgba(28, 176, 246, 0.4);
+}
+.lesson-circle.locked {
+  background: #e0e0e0;
+  border-color: #bdbdbd;
+  color: #999;
+  cursor: not-allowed;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+.wiggle-on-hover:hover {
+  animation: wiggle 0.5s ease-in-out;
+}
+.streak-flame {
+  filter: drop-shadow(0 2px 4px rgba(255, 150, 0, 0.3));
+  transition: all 0.3s ease;
+}
+
+.streak-flame:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 4px 8px rgba(255, 150, 0, 0.5));
+}
+
+.mascot-bounce {
+  animation: bounce 2s infinite;
+  transition: all 0.3s ease;
+}
+
+.mascot-bounce:hover {
+  animation: none;
+  transform: scale(1.1);
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% { transform: translateY(0); }
+  40%, 43% { transform: translateY(-8px); }
+  70% { transform: translateY(-4px); }
+  90% { transform: translateY(-2px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+.celebration-confetti {
+  animation: confetti 0.8s ease-out;
+}
+
+@keyframes confetti {
+  0% { transform: scale(0) rotate(0deg); opacity: 1; }
+  100% { transform: scale(1) rotate(180deg); opacity: 0; }
+}
+
+.duolingo-shadow {
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.duolingo-shadow:hover {
+  box-shadow: 0 8px 0 0 rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.option-card {
+  @apply bg-white border-2 border-gray-200 rounded-2xl p-4 transition-all duration-200 cursor-pointer;
+}
+
+.option-card:hover {
+  border-color: var(--duolingo-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(28, 176, 246, 0.2);
+}
+
+.option-card.selected {
+  border-color: var(--duolingo-blue);
+  background: #e3f2fd;
+  transform: scale(1.02);
+}
+
+.option-card.correct {
+  border-color: var(--duolingo-green);
+  background: #e8f5e8;
+  animation: correctPulse 0.6s ease;
+}
+
+@keyframes correctPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.option-card.incorrect {
+  border-color: var(--duolingo-red);
+  background: #ffebee;
+  animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.interactive-hover {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.interactive-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.stat-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.stat-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(88, 204, 2, 0.2);
+}
+
+.achievement-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.achievement-card:hover {
+  transform: translateX(5px);
+  background: rgba(88, 204, 2, 0.1);
+}
+
+.nav-item {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
+}
